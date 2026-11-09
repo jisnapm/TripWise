@@ -4,6 +4,7 @@ from rest_framework.response import Response
 from django.contrib.auth.models import User
 from tripmaster.serializers import UserSerializer, TripSerializer
 from tripmaster.models import TripDb
+from rest_framework import authentication, permissions
 
 # Create your views here.
 class SignUpView(APIView):
@@ -16,14 +17,17 @@ class SignUpView(APIView):
         else:
             return Response(data= s_instance.errors, status= 400)
 
-class TripListCreateView(APIView):
-    def get(self, request):
-        qs = TripDb.objects.all()
-        s_instance = TripSerializer(qs, many= True)
-        return Response(data= s_instance.data)
-
 class UserListCreateView(APIView):
     def get(self, request):
         qs = User.objects.all()
         s_instance = UserSerializer(qs, many= True)
+        return Response(data= s_instance.data)
+    
+class TripListCreateView(APIView):
+    authentication_classes = [authentication.BasicAuthentication]
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get(self, request):
+        qs = TripDb.objects.all()
+        s_instance = TripSerializer(qs, many= True)
         return Response(data= s_instance.data)
