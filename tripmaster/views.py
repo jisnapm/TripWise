@@ -31,3 +31,13 @@ class TripListCreateView(APIView):
         qs = TripDb.objects.all()
         s_instance = TripSerializer(qs, many= True)
         return Response(data= s_instance.data)
+
+    def post(self, request):
+        form_data = request.data
+        s_instance = TripSerializer(data= form_data)
+        if s_instance.is_valid():
+            s_instance.save(created_by= request.user)
+            return Response(data= {"message": "Trip Created Successfully!",
+                                   "your trip details":s_instance.data}, status= 201)
+        else:
+            return Response(data= s_instance.errors, status= 400)
