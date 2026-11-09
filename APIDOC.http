@@ -1,0 +1,18 @@
+###
+POST http://127.0.0.1:8000/register/
+Content-Type: application/json
+
+{
+    "username": "anjana",
+    "email": "anjana@gmail.com",
+    "password": "anjana123"
+}
+
+###
+GET http://127.0.0.1:8000/users/
+Accept: application/json
+
+
+###
+GET http://127.0.0.1:8000/trips/
+Accept: application/json
