@@ -22,6 +22,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('register/', views.SignUpView.as_view()),
     path('users/', views.UserListCreateView.as_view()),
-    path('trips/', views.TripListCreateView.as_view())
+    path('users/<int:pk>/', views.UserRetreiveUpdateDeleteView.as_view()),
+    path('trips/', views.TripListCreateView.as_view()),
+    path('trips/<int:pk>/', views.TripRetreiveUpdateDeleteView.as_view()),
+
 
 ]

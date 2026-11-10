@@ -3,15 +3,26 @@ POST http://127.0.0.1:8000/register/
 Content-Type: application/json
 
 {
-    "username": "anjana",
-    "email": "anjana@gmail.com",
-    "password": "anjana123"
+    "username": "jisnaa",
+    "email": "jisnaa@gmail.com",
+    "password": "jisnaa123"
 }
 
 ###
 GET http://127.0.0.1:8000/users/
 Accept: application/json
 
+
+###
+DELETE http://127.0.0.1:8000/users/1/
+Accept: application/json
+
+
+
+###
+GET http://127.0.0.1:8000/trips/
+Accept: application/json
+Authorization: Basic jisnaa:jisnaa123
 
 ###
 GET http://127.0.0.1:8000/trips/
@@ -22,10 +33,33 @@ Authorization: Basic anjana:anjana123
 ###
 POST http://127.0.0.1:8000/trips/
 Content-Type: application/json
+Authorization: Basic jisnaa:jisnaa123
+
+{
+    "title":"Banglore Trip",
+    "destination":"Banglore",
+    "start_date":"2026-11-28"
+}
+
+###
+GET http://127.0.0.1:8000/trips/1/
+Accept: application/json
+Authorization: Basic anjana:anjana123
+
+
+###
+PUT http://127.0.0.1:8000/trips/7/
+Content-Type: application/json
 Authorization: Basic anjana:anjana123
 
 {
-    "title":"Trip to Vagamon",
-    "destination":"Vagamon",
-    "start_date":"2026-12-01"
+    "title":"Munnar Trip",
+    "destination":"Munnar",
+    "start_date":"2026-11-15"
 }
+
+
+###
+DELETE http://127.0.0.1:8000/trips/10/
+Accept: application/json
+Authorization: Basic jisnaa:jisnaa123
