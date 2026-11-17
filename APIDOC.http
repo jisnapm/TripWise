@@ -48,7 +48,7 @@ Authorization: Basic anjana:anjana123
 
 
 ###
-PUT http://127.0.0.1:8000/trips/7/
+PUT http://127.0.0.1:8000/trips/2/
 Content-Type: application/json
 Authorization: Basic anjana:anjana123
 
@@ -63,3 +63,26 @@ Authorization: Basic anjana:anjana123
 DELETE http://127.0.0.1:8000/trips/10/
 Accept: application/json
 Authorization: Basic jisnaa:jisnaa123
+
+
+###
+GET http://127.0.0.1:8000/trips/1/members/
+Accept: application/json
+Authorization: Basic rithu:rithu123
+
+###
+POST http://127.0.0.1:8000/trips/1/members/
+Content-Type: application/json
+Authorization: Basic anjana:anjana123
+
+
+{
+    "username":"manu"
+}
+
+
+###
+DELETE http://127.0.0.1:8000/trips/1/members/4/
+Accept: application/json
+Authorization: Basic rithu:rithu123
+
